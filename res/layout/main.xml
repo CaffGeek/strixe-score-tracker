@@ -10,4 +10,34 @@
         android:layout_height="wrap_content"
         android:text="@string/hello" />
 
+	<Button
+		android:id="@+id/leftTwoPinButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/leftTwoPin" 
+	/>
+
+	<Button
+		android:id="@+id/leftThreePinButton" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/leftThreePin" />
+
+	<Button 
+		android:id="@+id/headPinButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/headPin" />
+
+	<Button 
+		android:id="@+id/rightThreePinButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/rightThreePin" />
+
+	<Button 
+		android:id="@+id/rightTwoPinButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/rightTwoPin" />
 </LinearLayout>

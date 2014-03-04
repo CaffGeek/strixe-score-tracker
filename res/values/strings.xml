@@ -3,5 +3,9 @@
 
     <string name="hello">Hello World, MainActivity!</string>
     <string name="app_name">StriXeScoreTracker</string>
-
+	<string name="leftTwoPin">2</string>
+	<string name="leftThreePin">3</string>
+	<string name="headPin">5</string>
+	<string name="rightThreePin">3</string>
+	<string name="rightTwoPin">2</string>
 </resources>
