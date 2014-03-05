@@ -10,44 +10,20 @@ import android.content.*;
 
 public class Logger
 {
-	public File ExtractLogToFileAndWeb(Context context){
-        //set a file
-        Date datum = new Date();
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ITALY);
-        String fullName = df.format(datum)+"appLog.log";
-        File file = new File (Environment.getExternalStorageDirectory(), fullName);
+    public File ExtractLogToFileAndWeb(Context context){
+        String result = getLog();
 
-        //clears a file
-        if(file.exists()){
-            file.delete();
-        }
-
-        //write log to file
-        int pid = android.os.Process.myPid();
-        try {
-            String command = String.format("logcat -d -v threadtime *:*");        
-            java.lang.Process process = Runtime.getRuntime().exec(command);
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder result = new StringBuilder();
-            String currentLine = null;
-
-            while ((currentLine = reader.readLine()) != null) {
-				if (currentLine != null && currentLine.contains(String.valueOf(pid))) {
-					result.append(currentLine);
-					result.append("\n");
-				}
-            }
-
-            FileWriter out = new FileWriter(file);
-            out.write(result.toString());
-            out.close();
-
-            //Runtime.getRuntime().exec("logcat -d -v time -f "+file.getAbsolutePath());
-        } catch (IOException e) {
-            Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
-        }
-
+		Intent i = new Intent(Intent.ACTION_SEND);
+		i.setType("message/rfc822");
+		i.putExtra(Intent.EXTRA_EMAIL, new String[] {"gibble+strixe@gmail.com"}); //TODO: Change email address
+		i.putExtra(Intent.EXTRA_SUBJECT, "BUG: StriXe Score Tracker");
+		i.putExtra(Intent.EXTRA_TEXT, result);
+		
+		try {
+		    startActivity(Intent.createChooser(i, "Send mail..."));
+		} catch (android.content.ActivityNotFoundException ex) {
+		    Toast.makeText(MyActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+		}
 
         //clear the log
         try {
@@ -57,5 +33,25 @@ public class Logger
         }
 
         return file;
+    }
+    
+    private String getLog() {
+        int pid = android.os.Process.myPid();
+    	
+		String command = String.format("logcat -d -v threadtime *:*");        
+		java.lang.Process process = Runtime.getRuntime().exec(command);
+		
+		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		StringBuilder result = new StringBuilder();
+		String currentLine = null;
+		
+		while ((currentLine = reader.readLine()) != null) {
+			if (currentLine != null && currentLine.contains(String.valueOf(pid))) {
+				result.append(currentLine);
+				result.append("\n");
+			}
+		}
+		
+		return result.toString();
     }
 }
