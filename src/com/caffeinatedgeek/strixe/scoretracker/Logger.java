@@ -10,8 +10,8 @@ import android.content.*;
 
 public class Logger
 {
-    public File ExtractLogToFileAndWeb(Context context){
-        String result = getLog();
+    public void EmailLogCat(Context context){
+        String result = getLog(context);
 
 		Intent i = new Intent(Intent.ACTION_SEND);
 		i.setType("message/rfc822");
@@ -20,9 +20,11 @@ public class Logger
 		i.putExtra(Intent.EXTRA_TEXT, result);
 		
 		try {
-		    startActivity(Intent.createChooser(i, "Send mail..."));
+			Intent intent = Intent.createChooser(i, "Send mail...");
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			context.startActivity(intent);
 		} catch (android.content.ActivityNotFoundException ex) {
-		    Toast.makeText(MyActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+		    Toast.makeText(context, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
 		}
 
         //clear the log
@@ -31,26 +33,28 @@ public class Logger
         } catch (IOException e) {
             Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
         }
-
-        return file;
     }
     
-    private String getLog() {
-        int pid = android.os.Process.myPid();
-    	
-		String command = String.format("logcat -d -v threadtime *:*");        
-		java.lang.Process process = Runtime.getRuntime().exec(command);
+    private String getLog(Context context) {
+        StringBuilder result = new StringBuilder();
+		int pid = android.os.Process.myPid();
+
+		try {
+			String command = String.format("logcat -d -v threadtime *:*");        
+			java.lang.Process process = Runtime.getRuntime().exec(command);
 		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-		StringBuilder result = new StringBuilder();
-		String currentLine = null;
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			String currentLine = null;
 		
-		while ((currentLine = reader.readLine()) != null) {
-			if (currentLine != null && currentLine.contains(String.valueOf(pid))) {
-				result.append(currentLine);
-				result.append("\n");
-			}
-		}
+			while ((currentLine = reader.readLine()) != null) {
+				if (currentLine != null && currentLine.contains(String.valueOf(pid))) {
+					result.append(currentLine);
+					result.append("\n");
+				}
+			}	
+		} catch (IOException e) {
+            Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+        }
 		
 		return result.toString();
     }
