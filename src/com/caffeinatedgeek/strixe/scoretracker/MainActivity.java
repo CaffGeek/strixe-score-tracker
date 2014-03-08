@@ -16,8 +16,8 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 
 		//TODO: Move to global Exception Handler
-		Logger logger = new Logger();
-		logger.EmailLogCat(getApplicationContext());
+		//Logger logger = new Logger();
+		//logger.EmailLogCat(getApplicationContext());
 		
 		Button leftTwoPinButton = (Button) findViewById(R.id.leftTwoPinButton);
 		Button leftThreePinButton = (Button) findViewById(R.id.leftThreePinButton);
@@ -34,8 +34,12 @@ public class MainActivity extends Activity
 	
 	View.OnClickListener pinClickHandler = new View.OnClickListener() {
 		public void onClick(View v) {
-			//Button button = (Button)v;
-			//Toast.makeText(getApplicationContext(), button.getText(), Toast.LENGTH_SHORT).show();
+			ToggleButton button = (ToggleButton)v;
+			CharSequence txt = button.getText();
+			boolean isStanding = button.isChecked();
+			String message = txt.toString()
+				+ (isStanding ? " up" : " down");
+			Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 		}
 	};
 }

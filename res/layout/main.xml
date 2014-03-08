@@ -3,41 +3,50 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="horizontal" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello" />
-
-	<Button
+	<ToggleButton
 		android:id="@+id/leftTwoPinButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/leftTwoPin" 
+		android:textOn="@string/leftTwoPin"
+		android:textOff="@string/leftTwoPin"
+		android:background="@drawable/drawablepintoggle"
 	/>
 
-	<Button
+	<ToggleButton
 		android:id="@+id/leftThreePinButton" 
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/leftThreePin" />
+		android:textOn="@string/leftThreePin" 
+		android:textOff="@string/leftThreePin" 
+		android:background="@drawable/drawablepintoggle"
+	/>
 
-	<Button 
+	<ToggleButton
 		android:id="@+id/headPinButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/headPin" />
+		android:textOn="@string/headPin" 
+		android:textOff="@string/headPin" 
+		android:background="@drawable/drawablepintoggle"
+	/>
 
-	<Button 
+	<ToggleButton
 		android:id="@+id/rightThreePinButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/rightThreePin" />
+		android:textOn="@string/rightThreePin" 
+		android:textOff="@string/rightThreePin" 
+		android:background="@drawable/drawablepintoggle"
+	/>
 
-	<Button 
+	<ToggleButton
 		android:id="@+id/rightTwoPinButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/rightTwoPin" />
+		android:textOn="@string/rightTwoPin" 
+		android:textOff="@string/rightTwoPin" 
+		android:background="@drawable/drawablepintoggle"
+	/>
 </LinearLayout>
