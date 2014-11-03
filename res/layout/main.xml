@@ -49,4 +49,18 @@
 		android:textOff="@string/rightTwoPin" 
 		android:background="@drawable/drawablepintoggle"
 	/>
+
+	<Button
+		android:id="@+id/saveShotButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/ok"
+	/>
+
+	<TextView
+		android:id="@+id/showShotValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
+	
 </LinearLayout>
