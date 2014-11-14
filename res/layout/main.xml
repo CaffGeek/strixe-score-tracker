@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
@@ -12,6 +12,7 @@
 		android:textOn="@string/leftTwoPin"
 		android:textOff="@string/leftTwoPin"
 		android:background="@drawable/drawablepintoggle"
+		android:layout_toLeftOf="@+id/leftThreePinButton"
 	/>
 
 	<ToggleButton
@@ -21,6 +22,8 @@
 		android:textOn="@string/leftThreePin" 
 		android:textOff="@string/leftThreePin" 
 		android:background="@drawable/drawablepintoggle"
+		android:layout_toLeftOf="@+id/headPinButton"
+		android:layout_marginTop="60dp"
 	/>
 
 	<ToggleButton
@@ -30,6 +33,8 @@
 		android:textOn="@string/headPin" 
 		android:textOff="@string/headPin" 
 		android:background="@drawable/drawablepintoggle"
+		android:layout_centerHorizontal="true"
+		android:layout_marginTop="120dp"
 	/>
 
 	<ToggleButton
@@ -39,6 +44,8 @@
 		android:textOn="@string/rightThreePin" 
 		android:textOff="@string/rightThreePin" 
 		android:background="@drawable/drawablepintoggle"
+		android:layout_toRightOf="@+id/headPinButton"
+		android:layout_marginTop="60dp"
 	/>
 
 	<ToggleButton
@@ -48,19 +55,22 @@
 		android:textOn="@string/rightTwoPin" 
 		android:textOff="@string/rightTwoPin" 
 		android:background="@drawable/drawablepintoggle"
+		android:layout_toRightOf="@+id/rightThreePinButton"
 	/>
 
 	<Button
 		android:id="@+id/saveShotButton"
-		android:layout_width="wrap_content"
+		android:layout_width="100dp"
 		android:layout_height="wrap_content"
 		android:text="@string/ok"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@+id/headPinButton"
 	/>
 
 	<TextView
 		android:id="@+id/showShotValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+       	android:layout_width="match_parent"
+       	android:layout_height="wrap_content"
     />
-	
-</LinearLayout>
+		
+</RelativeLayout>
