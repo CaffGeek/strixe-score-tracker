@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="horizontal" >
+    android:layout_height="fill_parent">
+
+	<HorizontalScrollView
+		android:id="@+id/frameListContainer"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+		<LinearLayout
+			android:id="@+id/frameList"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/fallenpin"
+			/>
+		</LinearLayout>
+	</HorizontalScrollView>
 
 	<ToggleButton
 		android:id="@+id/leftTwoPinButton"
@@ -13,6 +73,7 @@
 		android:textOff="@string/leftTwoPin"
 		android:background="@drawable/drawablepintoggle"
 		android:layout_toLeftOf="@+id/leftThreePinButton"
+		android:layout_below="@+id/frameListContainer"
 	/>
 
 	<ToggleButton
@@ -24,6 +85,7 @@
 		android:background="@drawable/drawablepintoggle"
 		android:layout_toLeftOf="@+id/headPinButton"
 		android:layout_marginTop="60dp"
+		android:layout_below="@+id/frameListContainer"
 	/>
 
 	<ToggleButton
@@ -35,6 +97,7 @@
 		android:background="@drawable/drawablepintoggle"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="120dp"
+		android:layout_below="@+id/frameListContainer"
 	/>
 
 	<ToggleButton
@@ -46,6 +109,7 @@
 		android:background="@drawable/drawablepintoggle"
 		android:layout_toRightOf="@+id/headPinButton"
 		android:layout_marginTop="60dp"
+		android:layout_below="@+id/frameListContainer"
 	/>
 
 	<ToggleButton
@@ -56,6 +120,7 @@
 		android:textOff="@string/rightTwoPin" 
 		android:background="@drawable/drawablepintoggle"
 		android:layout_toRightOf="@+id/rightThreePinButton"
+		android:layout_below="@+id/frameListContainer"
 	/>
 
 	<Button
@@ -69,8 +134,8 @@
 
 	<TextView
 		android:id="@+id/showShotValue"
-       	android:layout_width="match_parent"
-       	android:layout_height="wrap_content"
+   	   	android:layout_width="match_parent"
+   	   	android:layout_height="wrap_content"
     />
-		
+	
 </RelativeLayout>
