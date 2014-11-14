@@ -1,25 +1,20 @@
 package com.caffeinatedgeek.strixe.scoretracker;
 
+import java.util.*;
 import android.content.*;
 import android.widget.*;
 
 public class ScoreSheet
 {
-	private Context _context;
-	private Integer[] shots;
+	//TODO:Change to CQRS Event pattern
+	private ArrayList<Integer> shots;
 	
-	public ScoreSheet(Context context) {
-		_context = context;
-		shots = new Integer[30];
+	public ScoreSheet() {
+		shots = new ArrayList<Integer>();
 	}
 	
-	public void AddShot(Integer pinMask) {
-		shots[0] = pinMask;
-		Toast.makeText(_context, "PinMask:" + pinMask.toString(), Toast.LENGTH_SHORT).show();
-	}
-	
-	public Integer ConvertMaskToScore(Integer pinMask) {
-		
-		return 15;
+	public void AddShot(Integer pinMask, Integer score) {
+		shots.add(pinMask);
+		MainActivity.Toast("Score:" + score.toString());
 	}
 }
